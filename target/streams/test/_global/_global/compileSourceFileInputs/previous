@@ -1,0 +1,1 @@
+["sbt.Task[scala.collection.immutable.Map[java.lang.String, scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]]",{"2.13.1":{"hashes":[["C:\\rattrapages\\sgit\\src\\test\\scala\\sgit\\creationTests.scala","fb87f6b889dad70f888a8d02481915dea6ee5e36"]],"lastModifiedTimes":[]}}]

@@ -1,0 +1,9 @@
+[debug] Packaging C:\rattrapages\sgit\target\scala-2.13\sgit_2.13-0.1-sources.jar ...
+[debug] Input file mappings:
+[debug] 	sgit\Commands.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Commands.scala
+[debug] 	sgit\Creation.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Creation.scala
+[debug] 	sgit\SgitApp.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\SgitApp.scala
+[debug] Done packaging.
