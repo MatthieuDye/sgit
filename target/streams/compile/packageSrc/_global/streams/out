@@ -1,9 +1,21 @@
 [debug] Packaging C:\rattrapages\sgit\target\scala-2.13\sgit_2.13-0.1-sources.jar ...
 [debug] Input file mappings:
+[debug] 	sgit\Addition.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Addition.scala
+[debug] 	sgit\Blob.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Blob.scala
 [debug] 	sgit\Commands.scala
 [debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Commands.scala
+[debug] 	sgit\Commit.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Commit.scala
+[debug] 	sgit\Constants.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Constants.scala
 [debug] 	sgit\Creation.scala
 [debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Creation.scala
 [debug] 	sgit\SgitApp.scala
 [debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\SgitApp.scala
+[debug] 	sgit\SGitUtils.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\SGitUtils.scala
+[debug] 	sgit\Tree.scala
+[debug] 	  C:\rattrapages\sgit\src\main\scala\sgit\Tree.scala
 [debug] Done packaging.

@@ -40,7 +40,7 @@ rem "-J" is stripped, "-D" is left as is, and everything is appended to JAVA_OPT
 set _JAVA_PARAMS=
 set _APP_ARGS=
 
-set "APP_CLASSPATH=%APP_LIB_DIR%\sgit.sgit-0.1.jar;%APP_LIB_DIR%\org.scala-lang.scala-reflect-2.13.1.jar;%APP_LIB_DIR%\org.scala-lang.scala-library-2.13.1.jar;%APP_LIB_DIR%\org.scalactic.scalactic_2.13-3.0.8.jar;%APP_LIB_DIR%\org.apache.commons.commons-lang3-3.9.jar;%APP_LIB_DIR%\com.github.pathikrit.better-files_2.13-3.8.0.jar"
+set "APP_CLASSPATH=%APP_LIB_DIR%\sgit.sgit-0.1.jar;%APP_LIB_DIR%\org.scala-lang.scala-reflect-2.13.1.jar;%APP_LIB_DIR%\com.outr.hasher_2.13-1.2.2.jar;%APP_LIB_DIR%\org.scala-lang.scala-library-2.13.1.jar;%APP_LIB_DIR%\org.scalactic.scalactic_2.13-3.0.8.jar;%APP_LIB_DIR%\org.apache.commons.commons-lang3-3.9.jar;%APP_LIB_DIR%\com.github.pathikrit.better-files_2.13-3.8.0.jar"
 set "APP_MAIN_CLASS=sgit.SgitApp"
 set "SCRIPT_CONF_FILE=%APP_HOME%\conf\application.ini"
 

@@ -1,1 +1,51 @@
-[debug] Jar uptodate: C:\rattrapages\sgit\target\scala-2.13\sgit_2.13-0.1.jar
+[debug] Packaging C:\rattrapages\sgit\target\scala-2.13\sgit_2.13-0.1.jar ...
+[debug] Input file mappings:
+[debug] 	
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes
+[debug] 	sgit
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit
+[debug] 	sgit\Addition$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Addition$.class
+[debug] 	sgit\Addition.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Addition.class
+[debug] 	sgit\Blob$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Blob$.class
+[debug] 	sgit\Blob.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Blob.class
+[debug] 	sgit\Commands$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Commands$.class
+[debug] 	sgit\Commands.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Commands.class
+[debug] 	sgit\Commit$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Commit$.class
+[debug] 	sgit\Commit.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Commit.class
+[debug] 	sgit\Constants$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Constants$.class
+[debug] 	sgit\Constants.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Constants.class
+[debug] 	sgit\Creation$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Creation$.class
+[debug] 	sgit\Creation.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Creation.class
+[debug] 	sgit\Leaf$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Leaf$.class
+[debug] 	sgit\Leaf.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Leaf.class
+[debug] 	sgit\NodeFolder$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\NodeFolder$.class
+[debug] 	sgit\NodeFolder.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\NodeFolder.class
+[debug] 	sgit\SgitApp$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\SgitApp$.class
+[debug] 	sgit\SgitApp$delayedInit$body.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\SgitApp$delayedInit$body.class
+[debug] 	sgit\SgitApp.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\SgitApp.class
+[debug] 	sgit\SGitUtils$.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\SGitUtils$.class
+[debug] 	sgit\SGitUtils.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\SGitUtils.class
+[debug] 	sgit\Tree.class
+[debug] 	  C:\rattrapages\sgit\target\scala-2.13\classes\sgit\Tree.class
+[debug] Done packaging.

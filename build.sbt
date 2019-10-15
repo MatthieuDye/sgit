@@ -11,6 +11,8 @@ lazy val sgit = (project in file("."))
     libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.8",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test,
     libraryDependencies += "com.github.pathikrit" %% "better-files" % "3.8.0",
-    libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.9"
+    libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.9",
+    libraryDependencies += "com.outr" %% "hasher" % "1.2.2"
 
-  )
+
+)

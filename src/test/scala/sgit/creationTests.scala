@@ -7,6 +7,7 @@ class creationTests extends FunSpec with Matchers with GivenWhenThen with Before
   describe("First description") {
     describe("Second description") {
       it("Test assert") {
+        Creation.initSgitRepo()
         assert(1 === 1)
       }
     }

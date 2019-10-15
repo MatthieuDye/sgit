@@ -347,7 +347,7 @@ declare -r lib_dir="$(realpath "${app_home}/../lib")"
 declare -a app_mainclass=(sgit.SgitApp)
 
 declare -r script_conf_file="${app_home}/../conf/application.ini"
-declare -r app_classpath="$lib_dir/sgit.sgit-0.1.jar:$lib_dir/org.scala-lang.scala-reflect-2.13.1.jar:$lib_dir/org.scala-lang.scala-library-2.13.1.jar:$lib_dir/org.scalactic.scalactic_2.13-3.0.8.jar:$lib_dir/org.apache.commons.commons-lang3-3.9.jar:$lib_dir/com.github.pathikrit.better-files_2.13-3.8.0.jar"
+declare -r app_classpath="$lib_dir/sgit.sgit-0.1.jar:$lib_dir/org.scala-lang.scala-reflect-2.13.1.jar:$lib_dir/com.outr.hasher_2.13-1.2.2.jar:$lib_dir/org.scala-lang.scala-library-2.13.1.jar:$lib_dir/org.scalactic.scalactic_2.13-3.0.8.jar:$lib_dir/org.apache.commons.commons-lang3-3.9.jar:$lib_dir/com.github.pathikrit.better-files_2.13-3.8.0.jar"
 
 # java_cmd is overrode in process_args when -java-home is used
 declare java_cmd=$(get_java_cmd)

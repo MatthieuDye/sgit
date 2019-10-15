@@ -1,0 +1,59 @@
+package sgit
+import java.io.{File, PrintWriter}
+
+import com.roundeights.hasher.Implicits._
+import java.nio.file.{Path, Paths}
+
+import scala.annotation.tailrec
+import scala.io.Source
+
+class Tree(name: String, paths : String*) {
+
+  def writeTreeInFile = {
+    val treeWriter = new PrintWriter(new File(Constants.OBJECTS_PATH+name.sha512.hex))
+    treeWriter.write(getPathsReferences(paths: _*).mkString("\n"))
+    treeWriter.close()
+  }
+
+  def getTreeRef: String = {
+    "tree "+name.sha512.hex+" "+name
+  }
+
+  //@tailrec
+  private def getPathsReferences(paths : String*): List[String] = {
+    if (paths.isEmpty) Nil else {
+      if (!paths.head.contains("\\")) {
+        Tree.getBlobReference(paths.head) :: getPathsReferences(paths.tail: _*)
+      } else {
+        val newName = paths.head.splitAt(paths.head.indexOf("/"))._1
+        //Tree(newName, paths.tail.filter(el => el.splitAt(el.indexOf("/"))._1.equals(newName)): _*).getPathsReferences()
+        "tree "+newName.sha512.hex+" "+newName :: getPathsReferences(paths.tail: _*)
+      }
+    }
+
+  }
+
+}
+
+object Tree {
+  def apply(name: String, paths: String*): Tree = new Tree(name, paths: _*)
+
+
+
+  }
+
+  def createTreeFromIndex(map: Map[String, List[String]]) : Unit = {
+    map.foreach(keyValue =>
+      if(keyValue._2.isEmpty) {getBlobReference(keyValue._1)}
+      else { Tree(keyValue._1, getReferences(keyValue._2:_*): _*)
+      }
+    )
+  }
+
+  def getReferences(paths: String*) : List[String] = {
+    if (paths.isEmpty) { Nil }
+    else {
+       getBlobsReferences(paths.filter(el => !el.contains("/")):_*)
+    }
+  }
+}

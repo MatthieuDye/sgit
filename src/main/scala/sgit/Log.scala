@@ -1,0 +1,5 @@
+package sgit
+
+class Log {
+
+}
