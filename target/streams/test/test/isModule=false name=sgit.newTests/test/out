@@ -1,0 +1,3 @@
+[info] newTests:
+[info] sgit.newTests *** ABORTED ***
+[info]   org.scalatest.exceptions.NotAllowedException was thrown inside describe("I initialize my repo and add some files"), construction cannot continue: "java.nio.file.NoSuchFileException was thrown inside describe("I added them all"), construction cannot continue: "C:\rattrapages\sgit\readme.rd"" (newTests.scala:9)

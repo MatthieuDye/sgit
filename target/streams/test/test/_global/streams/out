@@ -1,8 +1,74 @@
-[debug] Running TaskDef(sgit.creationTests, org.scalatest.tools.Framework$$anon$1@293aa0c6, false, [SuiteSelector])
-[info] Run completed in 378 milliseconds.
-[info] Total number of tests run: 1
-[info] Suites: completed 1, aborted 0
-[info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
+[debug] javaOptions: Vector()
+[debug] Forking tests - parallelism = false
+[debug] Create a single-thread test executor
+[debug] Runner for org.scalatest.tools.Framework produced 3 initial tasks for 3 tests.
+[debug]   Running TaskDef(sgit.addingFiles, sbt.ForkMain$SubclassFingerscan@7d590695, false, [SuiteSelector])
+[info] addingFiles:
+[info] I initialize my repo and add some files
+[info]   I create a file :
+[info]   - Index size still 0
+[info]   - I have one file to add (untracked)
+[info]   - Nothing to commit
+[info]   - Nothing to update (because no exists in index
+[info]   If I add a file :
+[info]   - Index size increased
+[info]   - I have one file to commit
+[info]   - Nothing to update
+[info]   - Nothing to track
+[debug]     Produced 0 nested tasks and 8 events.
+[debug]   Running TaskDef(sgit.utils.SGitUtilsTest, sbt.ForkMain$SubclassFingerscan@d89b37, false, [SuiteSelector])
+[info] SGitUtilsTest:
+[info] - testCreateTreeFromHash
+[info] - testGetListPathsFromIndex
+[info] - testGetListPathsFromIndex$default$1
+[info] - testCreateTreeFromIndex
+[info] - testGetFirstFolderFromPath
+[info] - testTreeContainsElement
+[info] - testUpdateIndex
+[info] - testGetMaxDepthValue
+[info] - testGetMaxDepthValue$default$2
+[info] - testHasChangedFromCurrentCommitTree
+[info] - testCreateMapFromList
+[info] - testCreateMapFromList$default$2
+[info] - testWriteLineInFile
+[info] - testGetLastFolderFromPath
+[info] - testGetCurrentCommitHash
+[info] - testGetCurrentCommitHash$default$1
+[info] - testGetFileLinesContent
+[info] - testGetLastCommit
+[info] - testWriteTreeFrom
+[info] - testCreateCommitFromTree
+[info] - testGetParentFolder
+[info] - testGetDepthOf
+[info] - testIsReferencedByCurrentCommitTree
+[info] - testGetTreeFromCommitHash
+[info] - testGetTreeFromCommitHash$default$2
+[debug]     Produced 0 nested tasks and 25 events.
+[debug]   Running TaskDef(sgit.newTests, sbt.ForkMain$SubclassFingerscan@cddcca3, false, [SuiteSelector])
+[info] newTests:
+[info] I initialize my repo and add some files
+[info]   Without adding any of pre-existing files, my status displays :
+[info]   - Current index contains no entries
+[info]   - I don't have unstaged files
+[info]   - I have no elements to commit because my index is empty
+[info]   - 4 elements are considered as untracked files.
+[info]   I added them without one (./matthieu/5.txt)
+[info]   - My file 1.txt contains 1
+[info]   - Current index contains 8 entries and contains each added file
+[info]   - Current index contains some just-added elements
+[info]   - I don't have unstaged files
+[info]   - I have 8 elements to commit because I just added them
+[info]   - 1 is considered as untracked files.
+[info]     I will modify a tracked file
+[info]     - I put it 2 in place of 1 in 1.txt
+[info]     - and I should have a file to update
+[debug]     Produced 0 nested tasks and 12 events.
+[info] Run completed in 2 seconds, 624 milliseconds.
+[info] Total number of tests run: 45
+[info] Suites: completed 3, aborted 0
+[info] Tests: succeeded 45, failed 0, canceled 0, ignored 0, pending 0
 [info] All tests passed.
 [debug] Passed tests:
-[debug] 	sgit.creationTests
+[debug] 	sgit.newTests
+[debug] 	sgit.addingFiles
+[debug] 	sgit.utils.SGitUtilsTest

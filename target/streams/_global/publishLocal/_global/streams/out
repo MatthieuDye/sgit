@@ -1,0 +1,10 @@
+[info] :: delivering :: sgit#sgit_2.13;0.1 :: 0.1 :: release :: Thu Oct 17 12:22:27 CEST 2019
+[debug] 	options = status=release pubdate=Thu Oct 17 12:22:27 CEST 2019 validate=true resolveDynamicRevisions=true merge=true resolveId=null pubBranch=null
+[info] 	delivering ivy file to C:\rattrapages\sgit\target\scala-2.13\ivy-0.1.xml
+[debug] 	deliver done (36ms)
+[debug] local do not support transaction. ivy pattern does not use revision as a directory
+[info] 	published sgit_2.13 to C:\Users\mdye\.ivy2\local\sgit\sgit_2.13\0.1\poms\sgit_2.13.pom
+[info] 	published sgit_2.13 to C:\Users\mdye\.ivy2\local\sgit\sgit_2.13\0.1\jars\sgit_2.13.jar
+[info] 	published sgit_2.13 to C:\Users\mdye\.ivy2\local\sgit\sgit_2.13\0.1\srcs\sgit_2.13-sources.jar
+[info] 	published sgit_2.13 to C:\Users\mdye\.ivy2\local\sgit\sgit_2.13\0.1\docs\sgit_2.13-javadoc.jar
+[info] 	published ivy to C:\Users\mdye\.ivy2\local\sgit\sgit_2.13\0.1\ivys\ivy.xml

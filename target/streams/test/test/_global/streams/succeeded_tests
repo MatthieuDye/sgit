@@ -1,3 +1,6 @@
 #Successful Tests
-#Wed Oct 02 19:39:52 CEST 2019
-sgit.creationTests=1570037992418
+#Fri Oct 18 12:12:16 CEST 2019
+sgit.utils.SGitUtilsTest=1571393536434
+sgit.addingFiles=1571393536386
+sgit.newTests=1571393536628
+sgit.creationTests=1571214280682

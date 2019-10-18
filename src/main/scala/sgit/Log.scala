@@ -1,5 +1,0 @@
-package sgit
-
-class Log {
-
-}

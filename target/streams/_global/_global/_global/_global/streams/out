@@ -1,0 +1,18 @@
+[debug] [watch] [sgit / Compile / compile] Found inputs: C:\rattrapages\sgit\*.{java,scala},C:\rattrapages\sgit\src\main\java\**\*.{java,scala},C:\rattrapages\sgit\src\main\resources\**\*,C:\rattrapages\sgit\src\main\scala\**\*.{java,scala},C:\rattrapages\sgit\src\main\scala-2.13\**\*.{java,scala}
+[info] 1. Monitoring source files for sgit/compile...
+[info]    Press <enter> to interrupt or '?' for more options.
+[debug] sgit / Compile / compile - Accepted event for C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala
+[debug] Received Update(C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[debug] Received event for path C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala
+[debug] Received event for path C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala
+[debug] Creating update event for modified C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala (previous stamp: Hash(bfdcde355017163342ff2b1bc25b93bc95b3afc2), current stamp: Hash(32b2392ecd132448fadd481a73ef2a6b635faf5f))
+[debug] Received file event actions: C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala -> Trigger. Returning: (Update(C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala, 2019-oct.-18 13:39:10.981 CET),Trigger)
+[debug] sgit / Compile / compile - Accepted event for C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala
+[debug] Received Update(C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala,FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false),FileAttributes(isDirectory = false, isOther = false,isRegularFile = true, isSymbolicLink = false))
+[info] Build triggered by C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala. Running 'compile'.
+[debug] [watch] [debug] Received file event Trigger for Update(C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala, 2019-oct.-18 13:39:10.981 CET).
+[info] 2. Monitoring source files for sgit/compile...
+[info]    Press <enter> to interrupt or '?' for more options.
+[debug] Discarding entry for recently updated path C:\rattrapages\sgit\src\main\scala\sgit\utils\SGitUtils.scala. This event occurred 2 ms since the last event for this path.
+[debug] [watch] [debug] Received input event: Run().
+[debug] [watch] [debug] Received input event: Run().
