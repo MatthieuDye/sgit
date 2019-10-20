@@ -1,26 +1,34 @@
 package sgit.utils
 
 import better.files.File
-import sgit.FileAccessObjects.{Blob, Index, Leaf, NodeFolder, Tree}
+import sgit.FileAccessObjects.{Blob, Commit, Index, NodeFolder, Tree}
 import sgit.constants.{ConstPaths => PATH}
 
 import scala.annotation.tailrec
 
 object SGitUtils {
 
-  def getLastCommit : Option[String] = {
-    val pathOfCurrentCommit = {
-      File(PATH.HEAD).lines.filter(el => el.startsWith("ref:")).map(el => el.split(" ").tail.mkString).mkString
-    }
+  def getLastCommit : Option[Commit] = {
+    if (File(PATH.HEAD).exists) {
 
-    if (File(PATH.SGIT+pathOfCurrentCommit).exists) {
-      Some(File(PATH.SGIT+pathOfCurrentCommit).contentAsString)
+      val pathOfMaster = File(PATH.HEAD).lines.filter(el => el.startsWith("ref:")).map(el => el.split(" ").tail.mkString).mkString
+
+        if (File(PATH.SGIT+pathOfMaster).exists) {
+            createCommitFromRef(File(PATH.SGIT+pathOfMaster).lines.mkString)
+        } else None
     } else None
   }
 
-
-  def updateIndex( blob : Blob) : Unit = {
-    File(PATH.INDEX).lines.map(line => if (line.startsWith(blob.getBlobOriginFile)) blob.getBlobIndexRef else line )
+  def createCommitFromRef(commitHash :String) : Option[Commit] = {
+    if (File(PATH.OBJECTS_TREES+"/"+commitHash).exists) {
+      val content = File(PATH.OBJECTS_TREES+"/"+commitHash).lines
+      val rootRef = content.filter(line => line.startsWith("tree")).mkString.split(" ").last
+      val rootRefContent = File(PATH.OBJECTS_TREES+"/"+rootRef).lines
+      Some(
+        Commit(
+          NodeFolder("./", rootRefContent.map(childRef => createTreeFromRef(childRef).get).toSeq:_*),
+          if (content.exists(line => line.startsWith("parent"))) createCommitFromRef(content.filter(line => line.startsWith("tree")).mkString) else None))
+    } else None
   }
 
   def getLastFolderFromPath(str: String) : String = {
@@ -55,19 +63,21 @@ object SGitUtils {
 
     @tailrec
     def createTreeWithTailRec(depthAcc: Int, listMap: Map[String, List[String]], acc: Tree*): List[Tree] = {
+
       if (depthAcc<1) {
         acc.toList
       } else {
+
           createTreeWithTailRec(
-          depthAcc-1,
-          createMapFromList(listContent, depthAcc-1),
-          listMap.toList
-            .map(keyValue => NodeFolder(keyValue._1,
-            keyValue._2
+            depthAcc-1,
+            createMapFromList(listContent, depthAcc-1),
+            listMap.toList.map(keyValue => NodeFolder(keyValue._1, keyValue._2
               .map(path =>
-                if (acc.exists(tree => tree.getPath.equals(path))) { acc.find(tree => tree.getPath.equals(path)).get
+                if (acc.exists(tree => tree.getPath.equals(path))) {
+                  acc.find(tree => tree.getPath.equals(path)).get
                 } else {
-                  Leaf(Blob(File(path)))
+                  println("Path of creating tree "+path)
+                  Blob(File(path))
                 }
               ):_*)
           ):_*
@@ -106,43 +116,36 @@ object SGitUtils {
           "./",
           File(PATH.OBJECTS_TREES+"/"+rootTreeHash).lines.toList
             .map(
-              childTreeRef => createTreeFromHash(
-                childTreeRef.split( " ").toList.apply(0),
-                childTreeRef.split( " ").toList.apply(1),
-                childTreeRef.split( " ").toList.apply(2)
-              ).get
-            ):_*
-        )
+              childTreeRef => createTreeFromRef(childTreeRef).get
+              ):_*
+            )
       )
     }
 
 
   }
 
-  def createTreeFromHash (treeType : String, treeHash: String, treeName: String) : Option[Tree] = {
-    if (treeType.equals(NodeFolder.TREE_TYPE)) Some(
-      NodeFolder(treeName, File(PATH.OBJECTS_TREES+"/"+treeHash).lines.toList
-        .map(
-          childTreeRef => createTreeFromHash(
-            childTreeRef.split( " ").toList.apply(0),
-            childTreeRef.split( " ").toList.apply(1),
-            childTreeRef.split( " ").toList.apply(2)
-          ).get
-        ):_*)) else {getLeafFromBlob(getBlobFromHash(treeHash))}
-  }
-
-  def getLeafFromBlob(maybeBlob: Option[Blob]) : Option[Leaf] = {
-    maybeBlob match {
-      case Some(blob) => Some(Leaf(blob))
-      case None => None
-    }
+  def createTreeFromRef (treeRef: String) : Option[Tree] = {
+    if (treeRef.contains(NodeFolder.TREE_TYPE)) {
+      val treeName = treeRef.split(" ").apply(2)
+      val treeHash = treeRef.split(" ").apply(1)
+      Some(
+        NodeFolder(
+          treeName,
+          File(PATH.OBJECTS_TREES+"/"+treeHash).lines.toList
+          .map(
+            childTreeRef => createTreeFromRef(childTreeRef).get
+            ):_*
+          ))}
+    else getBlobFromHash(treeRef.split(" ").apply(1))
   }
 
   def getBlobFromHash(hash: String) : Option[Blob] = {
     // get blob from file from index
     getIndex() match {
       case Left(_) => None
-      case Right(index) => Some(Blob(
+      case Right(index) =>
+        Some(Blob(
         File(index.getMapIndex.find(tuple => tuple._2.equals(hash)).get._1)))
     }
 
@@ -152,7 +155,7 @@ object SGitUtils {
     if (getTreeFromCommitHash(getCurrentCommitHash()).isEmpty) {
       false
     } else
-    treeContainsElement( Leaf(Blob(File(pathOfElement))), getTreeFromCommitHash(getCurrentCommitHash()).get)
+    treeContainsElement( Blob(File(pathOfElement)), getTreeFromCommitHash(getCurrentCommitHash()).get)
   }
 
   /**
@@ -171,11 +174,11 @@ object SGitUtils {
     isReferencedByCurrentCommitTree(pathFromIndex) && !File(pathFromIndex).contentAsString.equals(indexHashedContent)
   }
 
-  def treeContainsElement( searchedLeaf: Leaf, remainingTrees : Tree* ): Boolean = {
+  def treeContainsElement( searchedBlob: Blob, remainingTrees : Tree* ): Boolean = {
     if (remainingTrees.isEmpty) false else {
       val currentTree = remainingTrees.head
-      if (currentTree.getChildren.exists(child => child.getRef.equals(searchedLeaf.getRef))) true
-      else treeContainsElement(searchedLeaf, remainingTrees.tail++currentTree.getChildren:_*)
+      if (currentTree.getChildren.exists(child => child.getRef.equals(searchedBlob.getRef))) true
+      else treeContainsElement(searchedBlob, remainingTrees.tail++currentTree.getChildren:_*)
     }
   }
 
@@ -183,8 +186,6 @@ object SGitUtils {
     head.lines.filter(line => line.startsWith("ref:")).mkString.split('\\').tail.mkString
   }
 
-  def encryptContent = ???
-  def hashContent = ???
 
   def getIndex(index : File = File(PATH.INDEX) ): Either[String, Index] = {
     if (index.exists) {

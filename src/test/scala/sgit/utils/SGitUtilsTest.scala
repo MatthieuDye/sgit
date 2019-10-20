@@ -1,107 +1,14 @@
-package sgit.utils
+package sgit
 
-import org.scalatest.FunSuite
+import org.scalatest.{BeforeAndAfter, FunSpec, GivenWhenThen, Matchers}
 
-class SGitUtilsTest extends FunSuite {
+class SGitUtilsTest extends FunSpec with Matchers with GivenWhenThen with BeforeAndAfter {
 
-  test("testCreateTreeFromHash") {
-
+  //Tests for creating trees
+  describe("Given a file test.txt content only test test ") {
+    it("Should return a string 'test test' when getContent is call") {
+    }
   }
 
-  test("testGetListPathsFromIndex") {
-
-  }
-
-  test("testGetListPathsFromIndex$default$1") {
-
-  }
-
-  test("testCreateTreeFromIndex") {
-
-  }
-
-  test("testGetFirstFolderFromPath") {
-
-  }
-
-  test("testTreeContainsElement") {
-
-  }
-
-  test("testUpdateIndex") {
-
-  }
-
-  test("testGetMaxDepthValue") {
-
-  }
-
-  test("testGetMaxDepthValue$default$2") {
-
-  }
-
-  test("testHasChangedFromCurrentCommitTree") {
-
-  }
-
-  test("testCreateMapFromList") {
-
-  }
-
-  test("testCreateMapFromList$default$2") {
-
-  }
-
-  test("testWriteLineInFile") {
-
-  }
-
-  test("testGetLastFolderFromPath") {
-
-  }
-
-  test("testGetCurrentCommitHash") {
-
-  }
-
-  test("testGetCurrentCommitHash$default$1") {
-
-  }
-
-  test("testGetFileLinesContent") {
-
-  }
-
-  test("testGetLastCommit") {
-
-  }
-
-  test("testWriteTreeFrom") {
-
-  }
-
-  test("testCreateCommitFromTree") {
-
-  }
-
-  test("testGetParentFolder") {
-
-  }
-
-  test("testGetDepthOf") {
-
-  }
-
-  test("testIsReferencedByCurrentCommitTree") {
-
-  }
-
-  test("testGetTreeFromCommitHash") {
-
-  }
-
-  test("testGetTreeFromCommitHash$default$2") {
-
-  }
 
 }

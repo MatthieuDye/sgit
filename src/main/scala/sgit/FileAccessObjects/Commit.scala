@@ -5,10 +5,10 @@ import java.util.Calendar
 import com.roundeights.hasher.Implicits._
 
 
-class Commit(initTree: Tree, parent : Option[String], commitDate: String, lastCommitMessage : String) {
+class Commit(initTree: Tree, parent : Option[Commit], commitDate: String, lastCommitMessage : String) {
 
   def getInitialTree : Tree = initTree
-  def getParentCommit : String = if (parent.nonEmpty) "parent "+parent.get else ""
+  def getParentCommit : String = if (parent.nonEmpty) "parent "+parent.get.getCommitName else ""
   def getCommitDate : String = commitDate
   def getCommitMessage : String = lastCommitMessage
 
@@ -21,6 +21,6 @@ class Commit(initTree: Tree, parent : Option[String], commitDate: String, lastCo
 object Commit {
   val formatter = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss")
 
-  def apply(currentTree: Tree, parent: Option[String], lastCommitMessage: String = "commit", commitDate: String = formatter.format(Calendar.getInstance().getTime) ): Commit
+  def apply(currentTree: Tree, parent: Option[Commit], lastCommitMessage: String = "commit", commitDate: String = formatter.format(Calendar.getInstance().getTime) ): Commit
   = new Commit(currentTree, parent, commitDate, lastCommitMessage)
 }
